@@ -13,3 +13,10 @@ saveFile.write(text) # Tells Python to write text
 saveFile.close() # IMPORTANT to close or the file will hang open for a long time
 
 # Appendding to a file
+
+appendMe = 'New bit of information'
+
+appendFile = open('exampleFile.txt', 'a') # open() with 'a' is for APPEND
+appendFile.write('\n')     # Adds a new line before we append more data
+appendFile.write(appendMe) # Tells Python WHAT to append
+appendFile.close()         # closes the file
