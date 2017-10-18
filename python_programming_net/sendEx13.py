@@ -13,7 +13,9 @@ print('...\n' * 3)
 # "\033[F" goes to the previous line, it is the opposite of "\n"
 print('\033[FIt worked! Ok, now onto lists and tuples!\n')
 
-x = [2, 3, 4, 6, 3, 29, 5, 1, 5, 6, 7]
+x = [2, 3.01, 4, 6, 3, 2.9, 5, 1.19, 5, 6, 7]
+y = ['Jenny', 'Joey', 'Kelly', 'Kenlson',
+     'Becky', 'Bradford', 'Daisy', 'Dodsworth']
 print('Our list', x)
 
 # Appends a value to the end of the list
@@ -51,9 +53,30 @@ print('Last element:', x[-1],
 # Find the index value. This will find the first element with that value
 print('The index of the the first \"7\" is:', x.index(7),
       '\nNumber of 7\'s in this list:', x.count(7))
-# Sorting the list
 
+# Sorting lists
+print('\nOkay thats enough!'
+      '\nLook at this mess:', x,
+      '\nTime to sort this mess out.'
+      '\nFirst by removing any strings from the list...')
 
+# list.sort() can't sort lists that contain both ints and strings.
+# Iterates over each element and checks if it is a string. If it is,
+# appends the string to another list and removes it from the orginal list.
+for word in x:
+    if type(word) == str:
+        y.append(word)
+        x.remove(word)
+        print('Removing \'' + word + '\' from list.')
+
+# With the strings removed, we can now use list.sort()
+x.sort()
+print('Sorting the list out:', x)
+# NOTE: You print using + with a list, in this situation you must use commas.
+print('A new list of strings:', y,
+      '\nNotice our little friend from before? Time to sort this out.')
+y.sort()
+print('SORTED BITCH:', y)
 
 
 
