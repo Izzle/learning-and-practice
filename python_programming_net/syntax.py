@@ -31,7 +31,17 @@ print('Now onto numbers in Python. Python uses ints, floats, and bools.'
 
 # Tuple notation. Tuples are immutable (they cannot be changed).
 # Tuples are generated faster and are iterated faster than Lists.
-ex_tuple1 = 1, 2, 3, 4, 5
+ex_tuple = 1, 2, 3, 4, 5
 ex_tuple2 = (1, 2, 3, 4, 5)
 # List. Lists can be changed (they're mutable).
-ex_list = [1, 2, 3, 4, 5]
+ex_list = [1, 2, 3, 4, 5, 14, 12, 9, 55, 8, 6, 13, 7]
+
+# Printing tuples and lists. Uses the same notation!
+# Prints the second item in the tuple (ie 2)
+print(ex_tuple[1])
+# Prints the first and 4th item in the list
+print(ex_list[0], ex_list[3])
+# Prints the Second THROUGH Sixth element 
+# format is list[x:y] it starts at x and
+# prints up to but not including the y-th element
+print(ex_list[1:7])
