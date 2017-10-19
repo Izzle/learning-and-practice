@@ -1,4 +1,4 @@
-# Exercise 24, 25, 26, & 27
+# Exercise 24, 25, & 26
 # Custom modules and Lists
 
 
@@ -77,21 +77,3 @@ print('A new list of strings:', y,
       '\nNotice our little friend from before? Time to sort this out.')
 y.sort()
 print('SORTED BITCH:', y)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
