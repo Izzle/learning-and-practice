@@ -9,16 +9,19 @@ service = {'ftp': 21,
            'smtp': 25,
            'http': 80}
 
+
 def retBanner(ip, port):
     try:
         socket.setdefaulttimeout(2)
         s = socket.socket()
         s.connect((ip, port))
-        banner = s.recv(1024)  # The recv method will read the next 1024 bytes on the socket
+        # The recv method will read the next 1024 bytes on the socket
+        banner = s.recv(1024)
         return banner
-    except:
+    except Exception as e:
         print('[-] Error =', str(e))
         return
+
 
 def checkVuln(banner):
     if 'FreeFloat Ftp Server (Version 1.00)' in banner:
@@ -33,13 +36,15 @@ def checkVuln(banner):
         print('[-] FTP server is not vulnerable.')
     return
 
+
 def example_Try():
     try:
         foo = 'this shouldn\'t print'
         print(foo / 0)
         return
-    except Exception, e: #Testing this
+    except Exception as e:
         print('[-] Error =', str(e))
         return
+
 
 example_Try()
