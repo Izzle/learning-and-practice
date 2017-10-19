@@ -19,7 +19,7 @@ def retBanner(ip, port):
         banner = s.recv(1024)
         return banner
     except Exception as e:
-        print('[-] Error =', str(e))
+        print('[-] Error =', str(e), '. Error found in retBanner.')
         return
 
 
@@ -37,13 +37,19 @@ def checkVuln(banner):
     return
 
 
+'''
+   Experimental try except used for experimenting with different ways to handle
+   Exceptions. Delete or comment out when the rest of this code is complete.
+'''
+
+
 def example_Try():
     try:
         foo = 'this shouldn\'t print'
         print(foo / 0)
         return
     except Exception as e:
-        print('[-] Error =', str(e))
+        print('[-] Error =', str(e), '. Error found in example_Try.')
         return
 
 
