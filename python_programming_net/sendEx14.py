@@ -26,7 +26,7 @@ b = [
     [[2, 2], [4, 6]],
     [[7, 2], [9, 42]],
     [[3, 13], [7, 7]]
-    ]
+]
 print(b)
 print('First element of the first list:', b[0])
 print('Second element of previous list:', b[0][1])

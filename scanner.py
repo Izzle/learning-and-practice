@@ -52,5 +52,4 @@ def example_Try():
         print('[-] Error =', str(e), '. Error found in example_Try.')
         return
 
-
 example_Try()

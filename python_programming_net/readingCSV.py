@@ -50,5 +50,19 @@ with open('example.csv') as csvfile:
     except (NameError, ValueError, EnvironmentError,
             ZeroDivisionError, RuntimeError, OSError) as e:
         print('This should never print')
+print('''
+So this is a simple
+multi-line
+print, pretty cool, huh?
+
+==============
+|            |
+|            |
+|    BOX     |
+|            |
+|            |
+==============
+
+''')
 
 print('End of program.')

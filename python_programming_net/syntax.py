@@ -19,6 +19,22 @@ print('Now onto numbers in Python. Python uses ints, floats, and bools.'
       '\nInto an integer like so: ' + str(int(num)) +
       '\nTo do that you have to use int(num) to covert it to an int'
       '\nand then convert that into a string with str(int(num))')
+#Multi-line Print
+print('''
+So this is a simple
+multi-line
+print, pretty cool, huh?
+
+==============
+|            |
+|            |
+|    BOX     |
+|            |
+|            |
+==============
+
+
+''')
 1 + 1
 # Subtraction
 5 - 2
