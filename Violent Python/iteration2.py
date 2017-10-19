@@ -11,7 +11,7 @@ def retBanner(ip, port):
         s.connect((ip, port))
         banner = s.recv(1024)
         return banner
-    except:
+    except Exception:
         return
 
 
@@ -25,7 +25,7 @@ def checkVulns(banner):
 
 
 def main():
-    """portList contains all possible vunerable ports we are 
+    """portList contains all possible vunerable ports we are
       interested in checking: telnet, SSH, smtp, http, imap,
       and https services.
     """
