@@ -1,5 +1,6 @@
-# Exercise 28
+# Exercise 28, 29
 # Reading from CSV spreadsheet in Python 3
+# & Try and Except error handling
 #
 # CSV stands for Comma Separated Value and is commonly used
 # in spreadsheets and in large data sets
@@ -27,10 +28,27 @@ with open('example.csv') as csvfile:
     print('Dates:', dates)
     print('Colors:', colors)
 
-    whatColor = input('What color do you wish to know the date of? ')
-    whatColor = whatColor.lower().strip()
-    coldex = colors.index(whatColor)
+    # The Try Except is used here as a catch-all if we miss any errors
+    # Otherwise errors should be excepted in part of the logic(if/else, etc)
+    try:
+        whatColor = input('What color do you wish to know the date of? ')
+        # Basic code validation
+        whatColor = whatColor.lower().strip()
 
-    theDate = dates[coldex]
+        if whatColor in colors:
+            coldex = colors.index(whatColor)
+            theDate = dates[coldex]
+            print('The date of', whatColor.capitalize(), 'is', theDate)
+        else:
+            print('Color not found, or it is not a color!')
 
-    print('The date of', whatColor.capitalize(), 'is', theDate)
+    except Exception as e:
+        print('Shits broke. Here\'s what happened: ', e)
+
+    # This should never print, but is great at showing HOW you can
+    # specify multiply errors in a single except
+    except (NameError, ValueError, EnvironmentError,
+            ZeroDivisionError, RuntimeError, OSError) as e:
+        print('This should never print')
+
+print('End of program.')
