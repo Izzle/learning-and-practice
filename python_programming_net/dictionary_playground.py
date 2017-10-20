@@ -40,21 +40,3 @@ print('Joe\'s age and hair color:', second_dict['Joe'])
 # The first [] is the KEY and the second [] is the INDEX of the Value
 # Syntax: exDict['Tony'][0]
 print('Kevin\'s hair is:', second_dict['Kevin'][1])
-'''
-   PRACTICE
-Ask the user for input, validate it, then ask them more information and add
-it to the dictionary. Then print out specific information using notation:
-dict[key][valueIndex]
-'''
-try:
-    name = input('What is your name? ')
-    if name in second_dict:
-        # TODO use formatting to include the name in the print statement
-        print('Someone already has that name.')
-    else:
-        pass
-# TODO more specific exception handling
-except Exception as e:
-    print('[-] ERROR: ', e)
-# Use the multi-line print method you learned recently
-pass
