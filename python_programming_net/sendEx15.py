@@ -1,5 +1,5 @@
-# Exercise 32, 33, & 34
-# Built-in Functions, OS module, and Sys module in Python 3
+# Exercise 32
+# Built-in Functions in Python 3
 
 #
 # IMPORTANT: The help() function which you can run in IDLE
@@ -8,8 +8,6 @@
 #
 
 import math
-import os
-import sys
 
 # =======================================
 #          Built-in Functions
@@ -73,6 +71,3 @@ float_me = float(float_me)
 print('int_me you are now a:', type(int_me), 'And equal:', int_me,
       '\nstring_me you are now a:', type(string_me), 'And equal:', string_me,
       '\nfloat_me you are now a:', type(float_me), 'And equal:', float_me)
-
-
-
