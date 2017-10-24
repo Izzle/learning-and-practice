@@ -1,7 +1,7 @@
 # TODO
 ### A personal list of items to remember to do
 
-####Python
+#### Python
 
 
 -[ ] Learn more about namespaces in Python
@@ -10,7 +10,7 @@
 -[ ] Update the readme on my projects
 -[ ] Learn more about REGEX
 -[ ] Learn more about HTTP, GET and POST requests
-
+-[ ] Learn more about VIM
 
 ---------------
 Updated: 10/24/2017
