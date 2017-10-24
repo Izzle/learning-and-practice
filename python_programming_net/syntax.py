@@ -140,6 +140,11 @@ a and b
 j or k
 not x
 
+# Bitwise operator works on bits and performs bit by bit operation.
+# Assume if a = 60; and b = 13; Now in binary format they'd be:
+a = "0011 1100"
+b = "0000 1101"
+print('THESE ARE STRINGS, NOT CORRECT BITWISE NOTATION FOR PY3')
 
 
 
