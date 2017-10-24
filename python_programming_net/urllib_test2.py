@@ -4,6 +4,7 @@
 import urllib.request
 import urllib.parse
 
+
 # This will fail because Google and many other don't like bots
 # They want you to use their API (or be smart enough to work around it!)
 try:
@@ -37,7 +38,8 @@ try:
     saveFile = open('withHeaders.txt', 'w')
     saveFile.write(str(respData))
     saveFile.close()
-
+    
+    print('[+] File created!')
 except Exception as e:
     print(str(e))
 
