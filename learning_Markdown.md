@@ -1,16 +1,13 @@
 # \# Quick and Easy Markdown
 
-Markdown’s syntax is intended for one purpose: to be used as a format for writing for the web.
+Markdown’s syntax is intended for one purpose: to be used as a format for writing for the web. To try out Markdown in your browser try [Markdown Live Preview](http://markdownlivepreview.com "http://markdownlivepreview.com its not malware")
+###### *This quick guide was heavily inspired by [this video](https://www.youtube.com/watch?v=6A5EpqqDOdk "Youtube link") by Podmedics.*
 
 ## \#\# Why write in Markdown?
 - Formatting stays where it should be
 - Lightning face to type- no mouse required
 - Easy to read when marked-up
 - Easy to write 
-This was heavily inspired by [this video by Podmedics](https://www.youtube.com/watch?v=6A5EpqqDOdk "Youtube link")
-You can find more from [podmedics at blog](http://podmedics.heroku.com/blog "To the site")
-Another great resource is the [Github Guide: Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-And none of this would be possible without the original creators [John Gruber](https://daringfireball.net/projects/markdown/syntax "To the site") and Aaron Swartz.
 
 
 ## Headings
@@ -30,9 +27,9 @@ Is created by \#\#\#\#\#\# Heading 6
 ## Listing Items
 ### Unordered lists
 *Typing this...*
-\- list item 1
-\- list item 2
-\- list item 3
+\- Bananas
+\- Apples
+\- Oranges
 *creates this...*
 - Bananas
 - Apples
@@ -43,3 +40,10 @@ For numbered lists, simply type the *number, period, space,* **your item**
 1. Learn markdown
 2. ???
 3. Profit
+
+------------------
+
+
+You can find more from Podmedics [on his blog](http://podmedics.heroku.com/blog "To the site")
+To learn more about Markdown, checkout the [Github Guide: Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+And none of this would be possible without the original creators [John Gruber](https://daringfireball.net/projects/markdown/syntax "To the site") and Aaron Swartz.
