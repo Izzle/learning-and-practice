@@ -4,16 +4,28 @@
 import urllib.request
 import urllib.parse
 
-# Example GET request
+
+# =======================================
+#           Example GET
+# =======================================
+
 # .urlopen() must start with HTTP or HTTPS
-# x = urllib.request.urlopen('https://www.google.com')
-# print(x.read())
+x = urllib.request.urlopen('https://www.google.com')
+print(x.read())
+
+
+# =======================================
+#          Example POST
+# =======================================
+
 
 url = 'http://pythonprogramming.net'
+
 # dictionary with values of an HTTP POST request. This is seen in the URL
 # ex. pythonpg.net/?s=basic&submit=Search
 values = {'s': 'basic',
           'submit': 'search'}
+
 # Encodes our 'values' so that the web server can understand our POST.
 # HTTP requests must be encoded/decoded to send or read a GET or POST request.
 # Analogous to JSON. ex: in the browser, '%20' the encode of a space.
@@ -33,3 +45,33 @@ resp = urllib.request.urlopen(req)
 resp_data = resp.read()
 
 print(resp_data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
