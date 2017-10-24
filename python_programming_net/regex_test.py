@@ -26,6 +26,7 @@ $ match the end of a string
 | either or (an OR operator)
 [] range or "variance" [1-5a-qA-Z]
 [x] expecting "x" amount
+() pattern to search for 
 
 White Space Characters:
 \n new line
