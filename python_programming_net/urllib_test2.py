@@ -1,3 +1,9 @@
+# Exercise 35b
+# urllib part 2
+
+import urllib.request
+import urllib.parse
+
 # This will fail because Google and many other don't like bots
 # They want you to use their API (or be smart enough to work around it!)
 try:
@@ -12,7 +18,7 @@ except Exception as e:
 try:
     # I hardcoded the URL for simplicity of the exercise
     url = 'https://www.google.com/search?q=test'
-    
+
     # HEADERS are all the data you send in when you visit a website:
     # Your IP, browser, operating system, version, user agent, etc
     # Python says the browser is 'python/urllib/python3.6' NOT SO SNEEKY
@@ -23,7 +29,7 @@ try:
     # urllib.request.openurl() can take either a STRING containing a URL or
     # a .Request OBJECT as an argument and RETURNS the data. If you send a
     # .Request OBJECT you can specify HTTP header info like User-Agent.
-    resp = urllib.request.openurl(req)
+    resp = urllib.request.urlopen(req)
     respData = resp.read()
 
     # Printing respData to IDLE would lag out the console. Instead, we'll
