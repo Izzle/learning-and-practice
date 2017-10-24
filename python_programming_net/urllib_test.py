@@ -29,7 +29,7 @@ data = data.encode('utf-8')
 # CREATES a GET request from Python 3, after all data has been encoded.
 req = urllib.request.Request(url, data)
 # SENDS our HTTP(GET) request and saves the response
-resp = urllib.request.url(req)
+resp = urllib.request.urlopen(req)
 resp_data = resp.read()
 
 print(resp_data)
