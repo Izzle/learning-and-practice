@@ -36,13 +36,17 @@ Fun fact: This repo was created during a 2 hour drive home from LA to San Diego.
 ## Resources
 
 [PythonProgramming.net](https://pythonprogramming.net)
+
 [Learn Python 3 the Hard Way](https://learnpythonthehardway.org)
+
 [Violent Python: A Cookbook for Hackers, Forensic Analysts, Penetration Testers, and Security Engineers](https://www.amazon.com/Violent-Python-Cookbook-Penetration-Engineers/dp/1597499579)
 
 ## Tools
 
 [Regular Expression Tester](https://regexr.com "Amazing REGEX tool!")
+
 [Sublime Text 3](https://www.sublimetext.com "Text editor")
+
 [Anaconda for Sublime](http://damnwidget.github.io/anaconda/ "Turns Sublime into a Python IDE")
 
 
