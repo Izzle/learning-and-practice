@@ -1,4 +1,4 @@
-# Exercise 38, 39
+# Exercise 38, 39, 40
 # Tkinter
 
 from tkinter import *
@@ -17,14 +17,18 @@ class Window(Frame):
 
     # initialize our window
     def init_window(self):
-        # The title of our window is "GUI"
+
         self.master.title("GUI")
         # Says: We are filling up the windows. Adjust dimensions as needed.
         self.pack(fill=BOTH, expand=1)
-        # Button() is function within tkinter
-        quitButton = Button(self, text='Quit')
+        # Button() is function within tkinter. We set text and gave it a cmd.
+        # command=self.cleint_exit is a basic event handler that exits the app.
+        quitButton = Button(self, text='Quit', command=self.client_exit)
 
         quitButton.place(x=0, y=0)
+
+    def client_exit(self):
+        exit()
 
 
 # root Window
