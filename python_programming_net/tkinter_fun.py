@@ -38,14 +38,14 @@ class Window(Frame):
         self.master.config(menu=menu_bar)
 
         # Creating a basic menu with few functioning buttons
-        file = Menu(menu_bar) # Creating a 'File' button for our dropdown menu
-        file.add_command(label='Open', command=self.hello) # Non-functional 'Open' button
-        file.add_command(label='Save', command=self.hello) # Non-functional 'Save' button
-        file.add_separator() # Adds a space between the next menu item
-        file.add_command(label='Exit', command=self.client_exit) # Adds the 'Exit' button to our File button / dropdown menu
-        menu_bar.add_cascade(label='File', menu=file) # Adding 'FIle' to our menu. Think of cascade as the menu animation.
+        file = Menu(menu_bar)  # Creating a 'File' button for our dropdown menu
+        file.add_command(label='Open', command=self.hello)  # Non-functional 'Open' button
+        file.add_command(label='Save', command=self.hello)  # Non-functional 'Save' button
+        file.add_separator()  # Adds a space between the next menu item
+        file.add_command(label='Exit', command=self.client_exit)  # Adds the 'Exit' button to our File button / dropdown menu
+        menu_bar.add_cascade(label='File', menu=file)  # Adding 'FIle' to our menu. Think of cascade as the menu animation.
 
-        edit = Menu(menu_bar) # Creates an 'Edit' button for our dropdown menu
+        edit = Menu(menu_bar)  # Creates an 'Edit' button for our dropdown menu
         edit.add_command(label='Show Image', command=self.showImg)
         edit.add_command(label='Show Text', command=self.showTxt)
         menu_bar.add_cascade(label='Edit', menu=edit)
@@ -62,6 +62,18 @@ class Window(Frame):
 
     def hello(self):
         print('Hello World!')
+
+    def showImg(self):
+        load = Image.open('Shrug.jpg')     # Image.open() is from PIL
+        render = ImageTk.PhotoImage(load)  # ImageTk.PhotoImage() is from PIL
+
+        img = Label(self, image=render)    # Label() is from tkinter
+        img.image = render
+        img.place(x=0, y=0)
+
+    def showTxt(self):
+        text = Label(self, text='Better luck next time?')
+        text.pack()
 
 
 # root Window
