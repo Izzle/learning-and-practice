@@ -11,13 +11,14 @@ class Window(Frame):
         # __init__ is called when ever an object of the class is constructed
         Frame.__init__(self, master)
 
-    # Our Master widget or main frame
-    self.master = master
+        # Our Master widget or main frame
+        self.master = master
 
 
+# root Window
 root = Tk()
 
+
 app = Window(root)
-
-
-
+# Generates our main window
+root.mainloop()
