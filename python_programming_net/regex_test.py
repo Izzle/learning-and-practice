@@ -1,6 +1,6 @@
 # Exercise 36
 # Regular Expressions / Regex with re
-
+#
 import re
 
 
@@ -26,7 +26,7 @@ $ match the end of a string
 | either or (an OR operator)
 [] range or "variance" [1-5a-qA-Z]
 [x] expecting "x" amount
-() pattern to search for 
+() pattern to search for
 
 White Space Characters:
 \n new line
@@ -53,3 +53,6 @@ names = re.findall(r'[A-Z][a-z]*', example_string)
 
 print(ages)
 print(names)
+
+# For Part 2: Parsing through websites with urllib and re,
+# goto "parsing_websites.py" under the same directory
