@@ -1,7 +1,14 @@
-# Exercise 38, 39, 40
-# Tkinter
+# Exercise 38, 39, 40, 41, 42
+# Tkinter basics: windows, buttons, event handling, menus,
+# and images and text
+#
+# I know that my 'obvious' inline comments violate strict PEP8,
+# but I'm learning and its easier for me to follow myself in this case.
+# I'm sure Guido would approve.
+#
 
 from tkinter import *
+from PIL import Image, ImageTk
 
 
 class Window(Frame):
@@ -39,7 +46,8 @@ class Window(Frame):
         menu_bar.add_cascade(label='File', menu=file) # Adding 'FIle' to our menu. Think of cascade as the menu animation.
 
         edit = Menu(menu_bar) # Creates an 'Edit' button for our dropdown menu
-        edit.add_command(label='Undo') # Adds the 'Undo' button to our Edit button / dropdown menu
+        edit.add_command(label='Show Image', command=self.showImg)
+        edit.add_command(label='Show Text', command=self.showTxt)
         menu_bar.add_cascade(label='Edit', menu=edit)
 
         helpmenu = Menu(menu_bar)
