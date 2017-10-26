@@ -21,27 +21,32 @@ print_lock = threading.Lock()
 def exampleJob(worker):
     # Simulating the time to run an intensive process
     time.sleep(0.5)
-    # We 'lock' the print operation
+    # We 'lock' the print operation, when print is done it releases the lock
     with print_lock:
         print(threading.current_thread().name, worker)
 
 
 # Threading
 def threader():
-    # This will continue until the main thread dies and all daemons die
+    """This will continue until the main thread dies and all daemons die.
+    1) Gets a worker (Thread) from the Queue
+    2) Runs that worker through exampleJob()
+    3) Daemon released, worker (Thread) is sent back
+    to the Queue to be given more work.
+    """
     while True:
-        worker = q.get()    # Gets a worker from the Queue
-        exampleJob(worker)  # Puts worker to work!
-        q.task_done()       # Task is complete.
+        worker = q.get()
+        exampleJob(worker)
+        q.task_done()
 
 
 # Our Queue
 q = Queue()
 
-# Allowing 10 threads
+# Allows 10 threads
 for x in range(10):
     t = threading.Thread(target=threader)
-# This step is REQUIRED by threading before you can start a thread
+    # This step is REQUIRED by threading before you can start a thread
     t.daemon = True  # A daemon will die when its thread dies.
     t.start()
 
@@ -55,4 +60,6 @@ for worker in range(20):
 
 q.join()
 
-print('Entire job took:', time.time() - start)
+print('\nWe had 20 processes to run that take 0.5 seconds each.\n'
+      'Running linearly would take 10 seconds, but by threading...')
+print('Entire job took:', time.time() - start)  # ~1 second. Damnnnnn!
