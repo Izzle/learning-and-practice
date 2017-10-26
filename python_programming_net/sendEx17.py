@@ -46,7 +46,7 @@ q = Queue()
 # Allows 10 threads
 for x in range(10):
     t = threading.Thread(target=threader)
-    # This step is REQUIRED by threading before you can start a thread
+    # This step is REQUIRED, it must be set before .start() is called.
     t.daemon = True  # A daemon will die when its thread dies.
     t.start()
 
@@ -58,7 +58,15 @@ for worker in range(20):
     q.put(worker)
 
 
+# Blocks until all items in the Queue have been gotten and processed.
+#
+# The count of unfinished tasks goes up whenever an item is added to the
+# queue. The count goes down whenever a consumer thread calls task_done()
+# to indicate the item was retrieved and all work on it is complete.
+#
+# When the count of unfinished tasks drops to zero, join() unblocks.
 q.join()
+
 
 print('\nWe had 20 processes to run that take 0.5 seconds each.\n'
       'Running linearly would take 10 seconds, but by threading...')
