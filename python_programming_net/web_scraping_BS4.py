@@ -12,9 +12,12 @@ soup = bs.BeautifulSoup(sauce, 'lxml')
 print(soup)  # Works! Prints HTML that looks like the source code
 print(soup.title)         # <title> Greatest Page in USA</title>
 print(soup.title.name)    # title
-print(soup.title.string)  # Greatest Page in USA
+print(soup.title.string)  # returns a "navigable string" so child tags return 'NONE'
+print(soup.title.text)    # returns unicode, meaning it returns EVERYTHING
+print(soup.get_text())    # Gets text from all sorts of tags (span, code, div, etc)
 
 print(soup.p)             # First 'p' element
+print(soup.nav)           # First 'nav' element, LIKELY THE MAIN NAV OF THE PAGE!
 # print(soup.find_all('p'))  # Finds ALL paragraph tags
 
 for paragraph in soup.find_all('p'):
