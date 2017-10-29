@@ -14,3 +14,8 @@ print(soup.title)         # <title> Greatest Page in USA</title>
 print(soup.title.name)    # title
 print(soup.title.string)  # Greatest Page in USA
 
+print(soup.p)             # First 'p' element
+# print(soup.find_all('p'))  # Finds ALL paragraph tags
+
+for paragraph in soup.find_all('p'):
+    print(paragraph)
