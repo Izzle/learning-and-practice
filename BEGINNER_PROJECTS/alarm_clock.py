@@ -42,11 +42,14 @@ while True:
 # If user didnt enter military time we add 12 hours
 if valid_time.hour > 12:
     # Military time
-    print('Military times, eh? Thank you for your service.')
+    print('Military time, eh? Thank you for your service.')
 else:
     ans = input('AM or PM? ')
     if ans.lower() == 'pm':
-        new_time = valid_time.hour + 12
-print(new_time)
+        # FIX THIS: Currently its cutting off the minutes
+        valid_time = valid_time.hour + 12
 
+# WRONG - if you say 1PM its printing '13'
+print('Ok, so', str(valid_time))
 
+# datetime.time.now
