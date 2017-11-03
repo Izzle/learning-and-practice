@@ -1,6 +1,19 @@
 import csv
 import re
 
+
+def fix(re_search, csv_col):
+    diction = {}
+    for x in range(len(csv_col)):
+        result = re.search(re_search, csv_col[x])
+        if result:
+            diction[x] = result.group(0)
+        else:
+            diction[x] = 'NONE'
+
+    return diction
+
+
 with open('../Work/org_address_book.csv', 'r') as csvfile:
     csv_reader = csv.DictReader(csvfile, delimiter=',')
     # The lists that will hold our CSV columns
@@ -9,20 +22,24 @@ with open('../Work/org_address_book.csv', 'r') as csvfile:
     nick_names = []
     emails = []
     block_notes = []
-    print(csv_reader.fieldnames)
+    # print(csv_reader.fieldnames)
 
-    for line in csv_reader:
-        #print(line['Notes'])
-        print(line)
+    # for line in csv_reader:
+    #     #print(line['Notes'])
+    #     print(line)
 
     with open('../Work/newer_address_book.csv', 'w') as new_file:
         fieldnames = csv_reader.fieldnames
 
         csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames, delimiter=',')
         csv_writer.writeheader()
-
+        
+        # Goes over each list in the CSV
         for line in csv_reader:
-            csv_writer.writerow(line)
+            # Goes over each field in the list
+            for field in fieldnames:
+                print(line[field])
+
 
     #print(dir(csv_reader))
     #for line in csv_reader:
