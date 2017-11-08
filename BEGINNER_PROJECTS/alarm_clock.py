@@ -47,9 +47,13 @@ else:
     ans = input('AM or PM? ')
     if ans.lower() == 'pm':
         # FIX THIS: Currently its cutting off the minutes
+        # USE: datetime2 = datetime1 + timedelta
         valid_time = valid_time.hour + 12
+
 
 # WRONG - if you say 1PM its printing '13'
 print('Ok, so', str(valid_time))
 
 # datetime.time.now
+# datetime.timedelta will be useful 
+
