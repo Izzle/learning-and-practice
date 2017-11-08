@@ -44,16 +44,22 @@ if valid_time.hour > 12:
     # Military time
     print('Military time, eh? Thank you for your service.')
 else:
-    ans = input('AM or PM? ')
-    if ans.lower() == 'pm':
-        # FIX THIS: Currently its cutting off the minutes
-        # USE: datetime2 = datetime1 + timedelta
-        valid_time = valid_time.hour + 12
+    try:
+        ans = input('AM or PM? ')
+        if ans.lower() == 'pm':
+            print('Late start, eh?')
+            valid_time += datetime.timedelta(hours=12)
+        elif ans.lower() == 'am':
+            print('Early bird gets the worm!')
+        else:
+            print('Incorrect input: ABORT! ABORT!')
+    except Exception as e:
+        print(str(e))
+        print('Sorry, I didn\'t understand that.')
 
 
-# WRONG - if you say 1PM its printing '13'
+# WORKS - using military time!
 print('Ok, so', str(valid_time))
 
-# datetime.time.now
-# datetime.timedelta will be useful 
-
+# Now we just need to open the browser to a random youtube page
+# when it is time for the alarm to go off!
