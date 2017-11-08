@@ -1,6 +1,19 @@
 import csv
 import re
 
+'''NEW IDEA
+Instead of using CSV reader and writer (or DictReader/Writer)
+to sort the swap the data, use SQLite to put the data into 
+columns in a database and swap those. Then I can export the data
+using CSV writer!
+
+
+
+
+
+
+
+'''
 
 def fix(re_search, csv_col):
     diction = {}
