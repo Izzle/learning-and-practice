@@ -57,9 +57,19 @@ else:
         print(str(e))
         print('Sorry, I didn\'t understand that.')
 
+# Opens the text file
+with open('youtube.txt') as l:
+    # Stores the urls into the 'videos' variable
+    videos = l.readlines()
 
+
+# IF TIME != ALARM -> PRINT TIME
+# IF TIME == ALARM -> OPEN RANDOM VIDEO
 # WORKS - using military time!
 print('Ok, so', str(valid_time))
 
 # Now we just need to open the browser to a random youtube page
 # when it is time for the alarm to go off!
+if datetime.datetime.now() == valid_time:
+    # open a random youtube page
+    pass
