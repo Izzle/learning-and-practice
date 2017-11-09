@@ -4,9 +4,11 @@
 # Project idea is from the subreddit /r/beginnerprojects
 
 
-import datetime
+from datetime import datetime as dt
+import time
 import os
 import webbrowser
+import random
 
 # Checks for 'youtube.txt' and creates the file if it doesn't exist
 if os.path.isfile('youtube.txt') is False:
@@ -22,13 +24,15 @@ if os.path.isfile('youtube.txt') is False:
     savedFile.close()
 
 # Asking for time that alarm should go off
-TIME_FORMAT = '%H:%M'
+ALARM_TIME_FORMAT = '%H:%M'
+CURR_TIME_FORMAT = '%I:%M'
+
 while True:
 
     try:
         wake_up = input('What time do you want the alarm to go off? ')
         # Creates a datetime object from the string entered and in the format
-        valid_time = datetime.datetime.strptime(wake_up, TIME_FORMAT)
+        valid_time = dt.strptime(wake_up, ALARM_TIME_FORMAT)
     except Exception as e:
         print(str(e))
         print('Sorry, I didn\'t understand that.')
@@ -36,46 +40,56 @@ while True:
     else:
         break
 
-# If user didnt enter military time we add 12 hours
+# If the user entered military time then change CURR_TIME_FORMAT for comparison
 if valid_time.hour > 12:
     # Military time
     print('Military time, eh? Thank you for your service.')
-else:
+    CURR_TIME_FORMAT = ALARM_TIME_FORMAT
+else:  # If user didn't use military time add 12hrs to valid_time " "
     try:
         ans = input('AM or PM? ')
         if ans.lower() == 'pm':
-            print('Late start, eh?')
-            valid_time += datetime.timedelta(hours=12)
+            valid_time += dt.timedelta(hours=12)
         elif ans.lower() == 'am':
-            print('Early bird gets the worm!')
+            pass
         else:
             print('Incorrect input: ABORT! ABORT!')
     except Exception as e:
         print(str(e))
         print('Sorry, I didn\'t understand that.')
 
+
+# Creates format strings from our datetime objects so we
+# can use them correctly in comparisons and loops
+current_time = dt.now().strftime(CURR_TIME_FORMAT)
+alarm = valid_time.strftime(ALARM_TIME_FORMAT)
+
+print('Alarm is set for:', alarm)
+
+while current_time != alarm:
+    # We used a 24 hour clock to do the logic, but when printing we
+    # will display a 12 hour clock with AM/PM denoted
+    print('The time is now:', dt.now().strftime('%I:%M:%p'))
+
+    # Must declare time again inside the loop or the time will never refresh
+    # and cause an infinite loop
+    current_time = dt.now().strftime(CURR_TIME_FORMAT)
+
+    # Prevents spam and checks time every second
+    time.sleep(1)
+
+
 # Opens the text file
 with open('youtube.txt') as tube:
     # Stores the urls into the 'videos' variable
     videos = tube.readlines()
 
-
-# IF TIME != ALARM -> PRINT TIME
-# while valid_time != datetime.datetime.now():
-#     # WORKS - using military time!
-#     print('The time is:', str(valid_time))
-
-# Creates a format string from our datetime object valid_time
-alarm = valid_time.strftime(TIME_FORMAT)
-time = datetime.datetime.now().strftime(TIME_FORMAT)
-
-print('The time is:', time)
-print('Alarm is set for:', alarm)
-print(datetime.datetime.now())
-
-# IF TIME == ALARM -> OPEN RANDOM VIDEO
-# Now we just need to open the browser to a random youtube page
-# when it is time for the alarm to go off!
-if datetime.datetime.now() == valid_time:
-    # open a random youtube page
-    print('ITS THAT TIME!')
+# When its time for the alarm, this section selects and plays a random video
+# in the browser.
+if current_time == alarm:
+    print('Good morning beautiful!')
+    # Selects a random youtube link
+    selected_video = random.choice(videos)
+    # Opens the browser to the random video and tries to open it in a new tab
+    # otherwise it will open the browser if necessary.
+    webbrowser.open_new_tab(selected_video)
