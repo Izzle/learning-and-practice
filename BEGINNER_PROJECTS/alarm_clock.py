@@ -20,18 +20,15 @@ if os.path.isfile('youtube.txt') is False:
     savedFile = open('youtube.txt', 'w')
     savedFile.write(links)
     savedFile.close()
-    # read = open('youtube.txt', 'r').read()
-    # print(read)
 
 # Asking for time that alarm should go off
-time_format = '%H:%M'
+TIME_FORMAT = '%H:%M'
 while True:
 
     try:
         wake_up = input('What time do you want the alarm to go off? ')
         # Creates a datetime object from the string entered and in the format
-        # specified it throws a ValueError if the information is not valid time
-        valid_time = datetime.datetime.strptime(wake_up, time_format)
+        valid_time = datetime.datetime.strptime(wake_up, TIME_FORMAT)
     except Exception as e:
         print(str(e))
         print('Sorry, I didn\'t understand that.')
@@ -58,18 +55,27 @@ else:
         print('Sorry, I didn\'t understand that.')
 
 # Opens the text file
-with open('youtube.txt') as l:
+with open('youtube.txt') as tube:
     # Stores the urls into the 'videos' variable
-    videos = l.readlines()
+    videos = tube.readlines()
 
 
 # IF TIME != ALARM -> PRINT TIME
-# IF TIME == ALARM -> OPEN RANDOM VIDEO
-# WORKS - using military time!
-print('Ok, so', str(valid_time))
+# while valid_time != datetime.datetime.now():
+#     # WORKS - using military time!
+#     print('The time is:', str(valid_time))
 
+# Creates a format string from our datetime object valid_time
+alarm = valid_time.strftime(TIME_FORMAT)
+time = datetime.datetime.now().strftime(TIME_FORMAT)
+
+print('The time is:', time)
+print('Alarm is set for:', alarm)
+print(datetime.datetime.now())
+
+# IF TIME == ALARM -> OPEN RANDOM VIDEO
 # Now we just need to open the browser to a random youtube page
 # when it is time for the alarm to go off!
 if datetime.datetime.now() == valid_time:
     # open a random youtube page
-    pass
+    print('ITS THAT TIME!')
