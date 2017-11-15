@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server = 'pythonprogramming.net'
@@ -13,6 +11,9 @@ def pscan(port):
         return False
 
 
-for x in range(1, 26):
+for x in range(1, 450):
     if pscan(x):
         print('Port', x, 'is open')
+    else:
+        print('Port', x, 'is closed')
+
