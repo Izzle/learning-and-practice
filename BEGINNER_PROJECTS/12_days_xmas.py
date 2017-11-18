@@ -1,3 +1,9 @@
+# Project idea from the subreddit /r/dailyprogrammer
+#
+#
+# Author:  Ron Martin
+# Created: 11/17/2017
+
 gifts = ('Partridge in a Pear Tree', 'Turtle Doves', 'French Hens',
          'Calling Birds', 'Golden Rings', 'Geese-a-Laying',
          'Swans-a-Swimming', 'Maids-a-Milking', 'Ladies Dancing',

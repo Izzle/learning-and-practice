@@ -1,7 +1,8 @@
+# Project idea is from the subreddit /r/beginnerprojects
+#
+#
 # Ron Martin
 # 10/30/2017
-#
-# Project idea is from the subreddit /r/beginnerprojects
 
 
 from datetime import datetime as dt
