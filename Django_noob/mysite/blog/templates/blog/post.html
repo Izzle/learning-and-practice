@@ -1,0 +1,19 @@
+{% extends "personal/header.html" %}
+
+{# 'filter' safe allows us to put ANY code(HTML, scripts, etc)
+   into the Jinja without it coming across as plaintext tags.
+   In this case, the data we are saying is safe is from
+   any posts we enter in our admin panel in Django.
+   Be CAREFUL!!! Never use where clients can enter data
+   like a forum or comments: that'd be a huge security issue.
+
+   'filter' linebreaks just means that whenever there
+   is a linebreak in the code, there will be a linebreak.
+#}
+
+{% block content %}
+	<h3>{{ post.title }}</h3>
+	<h6>on {{post.date}}</h6>
+
+	{{post.body|safe|linebreaks}}
+{% endblock %}
