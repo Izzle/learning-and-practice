@@ -1,3 +1,17 @@
+import pygame
+import random
+
+WIDTH = 800
+HEIGHT = 600
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+
+game_display = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Blob World")
+clock = pygame.time.Clock()
+
 # Classes to be used my Pygame
 
 class BlobClass:
@@ -20,3 +34,25 @@ class BlobClass:
 
         if self.y < 0: self.y = 0
         elif self.y > HEIGHT: self.y = HEIGHT
+
+
+def draw_environment():
+    # This will "clear" the frame
+    game_display.fill(WHITE)
+    # This sends the image to the screen to be displayed
+    pygame.display.update()
+
+
+def main():
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        draw_environment()
+        clock.tick(60)
+
+
+if __name__ == '__main__':
+    main()
