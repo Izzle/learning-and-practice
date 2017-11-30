@@ -46,6 +46,16 @@ class BlueBlob(Blob):
             other_blob.size -= self.size
             
 
+class RedBlob(Blob):
+
+    def __init__(self, x_boundary, y_boundary):
+        Blob.__init__(self, (255, 0, 0) x_boundary, y_boundary)
+
+    def __add__(self, other_blob):
+        if other_blob.color == GREEN:
+            self.size -= other_blob.size
+            other_blob.size -= self.size
+
 
 def draw_environment():
     # This will "clear" the frame
