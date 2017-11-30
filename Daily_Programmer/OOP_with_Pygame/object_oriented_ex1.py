@@ -35,6 +35,17 @@ class BlobClass:
         if self.y < 0: self.y = 0
         elif self.y > HEIGHT: self.y = HEIGHT
 
+class BlueBlob(Blob):
+
+    def __init__(self, x_boundary, y_boundary):
+        Blob.__init__(self, (0, 0, 255), x_boundary, y_boundary)
+
+    def __add__(self, other_blob):
+        if other_blob.color == RED:
+            self.size -= other_blob.size
+            other_blob.size -= self.size
+            
+
 
 def draw_environment():
     # This will "clear" the frame
