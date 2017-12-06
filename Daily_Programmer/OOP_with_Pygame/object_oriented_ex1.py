@@ -35,6 +35,7 @@ class BlobClass:
         if self.y < 0: self.y = 0
         elif self.y > HEIGHT: self.y = HEIGHT
 
+
 class BlueBlob(Blob):
 
     def __init__(self, x_boundary, y_boundary):
@@ -44,15 +45,26 @@ class BlueBlob(Blob):
         if other_blob.color == RED:
             self.size -= other_blob.size
             other_blob.size -= self.size
-            
+
 
 class RedBlob(Blob):
 
     def __init__(self, x_boundary, y_boundary):
-        Blob.__init__(self, (255, 0, 0) x_boundary, y_boundary)
+        Blob.__init__(self, (255, 0, 0), x_boundary, y_boundary)
 
     def __add__(self, other_blob):
         if other_blob.color == GREEN:
+            self.size -= other_blob.size
+            other_blob.size -= self.size
+
+
+class GreenBlob(Blob):
+
+    def __init__(self, x_boundary, y_boundary):
+        Blob.__init__(self, (0, 255, 0), x_boundary, y_boundary)
+
+    def __add__(self, other_blob):
+        if other_blob.color == BLUE:
             self.size -= other_blob.size
             other_blob.size -= self.size
 
