@@ -1,15 +1,19 @@
 '''Test Driven Development with Python
 
-   TODO: Add a requirements file
-         Required:
-             -Python 3.6
-             -Django
+   TODO: Finish setup of Dev Environment on each platform
+         that I work on.
+         Windows:
              -Selenium
              -Geckodriver
              -virtualenv
+         macOS:
              -Firefox
-         Recommended:
-             -Git
+             -Geckodriver
+         Linux(VMware):
+             -Complete!
+         Linux(proxmox):
+             -verify virtualenvwrapper PATH
+              (may need to reorder .bashrc entries)      
 
 '''
 
@@ -38,5 +42,8 @@ class NewVisitorTest(unittest.TestCase):
 
         # She is invited to enter a to-do item straight away
         # [...to be continued]
+
+
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
+
