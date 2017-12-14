@@ -25,7 +25,7 @@ import unittest
 
 class NewVisitorTest(unittest.TestCase):
 
-    def setUP(self):
+    def setUp(self):
         self.browser = webdriver.Firefox()
 
     def tearDown(self):
@@ -34,7 +34,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Sally has heard about a cool new online to-do app.
         # She wants to check out its homepage
-        self.browser.get('https://localhost:8000')
+        self.browser.get('http://localhost:8000')
 
         # She notices the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title)
