@@ -1,3 +1,7 @@
+# Countdown to a specific date
+# In this case, the date that I should be prepared as a developer
+# in order to start applying for jobs.
+
 from datetime import datetime as dt
 
 
