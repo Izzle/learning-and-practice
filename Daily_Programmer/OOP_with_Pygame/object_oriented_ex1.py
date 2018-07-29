@@ -3,6 +3,10 @@
 import pygame
 import random
 
+STARTING_BLUE_BLOBS = 10
+STARTING_RED_BLOBS = 3
+STARTING_GREEN_BLOBS = 6
+
 WIDTH = 800
 HEIGHT = 600
 WHITE = (255, 255, 255)
@@ -75,26 +79,30 @@ class GreenBlob(Blob):
             other_blob.size -= self.size
 
 
-def draw_environment(blob):
+def draw_environment(blob_list):
     # This will "clear" the frame
     game_display.fill(WHITE)
-    pygame.draw.circle(game_display, blob.color, [blob.x, blob.y], blob.size)
+    for blob_dict in blob_list:
+        for blob_id in blob_dict:
+            blob = blob_dict[blob_id]
+            pygame.draw.circle(game_display, blob.color, [blob.x, blob.y], blob.size)
+            blob.move()
     # This sends the image to the screen to be displayed
     pygame.display.update()
-    blob.move()
 
 
 def main():
-    red_blob = Blob(RED)
+    red_blobs = dict(enumerate([Blob(RED) for i in range(STARTING_RED_BLOBS)]))
+    blue_blobs = dict(enumerate([Blob(BLUE) for i in range(STARTING_BLUE_BLOBS)]))
+    green_blobs = dict(enumerate([Blob(GREEN) for i in range(STARTING_GREEN_BLOBS)]))
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
 
-        draw_environment(red_blob)
+        draw_environment([red_blobs, blue_blobs, green_blobs])
         clock.tick(60)
-        print(red_blob.x, red_blob.y)
 
 
 if __name__ == '__main__':
