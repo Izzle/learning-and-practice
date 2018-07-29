@@ -1,3 +1,5 @@
+# Generally, PEP8 suggests 1 line of white space between functions and 2 between classes.
+
 import pygame
 import random
 
@@ -13,8 +15,8 @@ pygame.display.set_caption("Blob World")
 clock = pygame.time.Clock()
 
 # Classes to be used my Pygame
-
-class BlobClass:
+ 
+class Blob:
 
     def __init__(self, color):
         self.x = random.randrange(0, WIDTH)
@@ -29,11 +31,15 @@ class BlobClass:
         self.y += self.move_y
 
         # May not be PEP8, but its easier to read
-        if self.x < 0: self.x = 0
-        elif self.x > WIDTH: self.x = WIDTH
+        if self.x < 0:
+            self.x = 0
+        elif self.x > WIDTH:
+            self.x = WIDTH
 
-        if self.y < 0: self.y = 0
-        elif self.y > HEIGHT: self.y = HEIGHT
+        if self.y < 0:
+            self.y = 0
+        elif self.y > HEIGHT:
+            self.y = HEIGHT
 
 
 class BlueBlob(Blob):
@@ -69,22 +75,26 @@ class GreenBlob(Blob):
             other_blob.size -= self.size
 
 
-def draw_environment():
+def draw_environment(blob):
     # This will "clear" the frame
     game_display.fill(WHITE)
+    pygame.draw.circle(game_display, blob.color, [blob.x, blob.y], blob.size)
     # This sends the image to the screen to be displayed
     pygame.display.update()
+    blob.move()
 
 
 def main():
+    red_blob = Blob(RED)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
 
-        draw_environment()
+        draw_environment(red_blob)
         clock.tick(60)
+        print(red_blob.x, red_blob.y)
 
 
 if __name__ == '__main__':
