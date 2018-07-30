@@ -66,6 +66,7 @@ def draw_environment(blob_list):
             blob = blob_dict[blob_id]
             pygame.draw.circle(game_display, blob.color, [blob.x, blob.y], blob.size)
             blob.move()
+            blob.check_bounds()
     # This sends the image to the screen to be displayed
     pygame.display.update()
 
