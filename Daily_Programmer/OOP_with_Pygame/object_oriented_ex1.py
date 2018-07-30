@@ -2,6 +2,7 @@
 
 import pygame
 import random
+from blob import Blob
 
 STARTING_BLUE_BLOBS = 10
 STARTING_RED_BLOBS = 3
@@ -19,36 +20,14 @@ pygame.display.set_caption("Blob World")
 clock = pygame.time.Clock()
 
 # Classes to be used my Pygame
- 
-class Blob:
-
-    def __init__(self, color):
-        self.x = random.randrange(0, WIDTH)
-        self.y = random.randrange(0, HEIGHT)
-        self.size = random.randrange(4, 8)
-        self.color = color
-
-    def move(self):
-        self.move_x = random.randrange(-1, 2)
-        self.move_y = random.randrange(-1, 2)
-        self.x += self.move_x
-        self.y += self.move_y
-
-        # May not be PEP8, but its easier to read
-        if self.x < 0:
-            self.x = 0
-        elif self.x > WIDTH:
-            self.x = WIDTH
-
-        if self.y < 0:
-            self.y = 0
-        elif self.y > HEIGHT:
-            self.y = HEIGHT
 
 
 class BlueBlob(Blob):
 
+    pass
+"""
     def __init__(self, x_boundary, y_boundary):
+        super().__init__()
         Blob.__init__(self, (0, 0, 255), x_boundary, y_boundary)
 
     def __add__(self, other_blob):
@@ -77,7 +56,7 @@ class GreenBlob(Blob):
         if other_blob.color == BLUE:
             self.size -= other_blob.size
             other_blob.size -= self.size
-
+"""
 
 def draw_environment(blob_list):
     # This will "clear" the frame
@@ -92,9 +71,9 @@ def draw_environment(blob_list):
 
 
 def main():
-    red_blobs = dict(enumerate([Blob(RED) for i in range(STARTING_RED_BLOBS)]))
-    blue_blobs = dict(enumerate([Blob(BLUE) for i in range(STARTING_BLUE_BLOBS)]))
-    green_blobs = dict(enumerate([Blob(GREEN) for i in range(STARTING_GREEN_BLOBS)]))
+    red_blobs = dict(enumerate([BlueBlob(RED, WIDTH, HEIGHT) for i in range(STARTING_RED_BLOBS)]))
+    blue_blobs = dict(enumerate([BlueBlob(BLUE, WIDTH, HEIGHT) for i in range(STARTING_BLUE_BLOBS)]))
+    green_blobs = dict(enumerate([BlueBlob(GREEN, WIDTH, HEIGHT) for i in range(STARTING_GREEN_BLOBS)]))
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
