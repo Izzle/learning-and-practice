@@ -24,7 +24,13 @@ clock = pygame.time.Clock()
 
 class BlueBlob(Blob):
 
-    pass
+    def __init__(self, color, x_boundary, y_boundary):
+        super().__init__(color, x_boundary, y_boundary)
+        self.color = BLUE
+
+    def move_fast(self):
+        self.x += random.randrange(-7, 7)
+        self.y += random.randrange(-7, 7)
 """
     def __init__(self, x_boundary, y_boundary):
         super().__init__()
@@ -65,7 +71,7 @@ def draw_environment(blob_list):
         for blob_id in blob_dict:
             blob = blob_dict[blob_id]
             pygame.draw.circle(game_display, blob.color, [blob.x, blob.y], blob.size)
-            blob.move()
+            blob.move_fast()
             blob.check_bounds()
     # This sends the image to the screen to be displayed
     pygame.display.update()

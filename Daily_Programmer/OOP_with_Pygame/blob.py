@@ -1,5 +1,6 @@
 import random
 
+# Blob is the Parent class or Super class
 class Blob:
 
     def __init__(self, color, x_boundary, y_boundary, size_range=(4, 8), movement_range=(-1, 2)):
