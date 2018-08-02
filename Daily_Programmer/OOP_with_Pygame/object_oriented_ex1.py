@@ -24,9 +24,8 @@ clock = pygame.time.Clock()
 
 class BlueBlob(Blob):
 
-    def __init__(self, color, x_boundary, y_boundary):
-        super().__init__(color, x_boundary, y_boundary)
-        self.color = BLUE
+    def __init__(self, x_boundary, y_boundary):
+        Blob.__init__(self, (0, 0, 255), x_boundary, y_boundary)
 
     def move_fast(self):
         self.x += random.randrange(-7, 7)
